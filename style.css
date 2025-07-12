@@ -1,0 +1,170 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(135deg, #4c0099, #1a0033);
+  color: #fff;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+header {
+  text-align: center;
+  padding: 30px 20px;
+  font-size: 28px;
+  font-weight: bold;
+  color: #00eaff;
+  text-shadow: 0 0 10px #00eaff77;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  padding: 40px 20px;
+  position: relative;
+}
+
+.card {
+  display: flex;
+  background: #2a004d;
+  border-radius: 30px;
+  box-shadow: 0 0 40px #00000077;
+  padding: 30px;
+  gap: 40px;
+  flex-wrap: wrap;
+  align-items: center;
+  max-width: 1000px;
+  transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+}
+
+.carro-box {
+  background: radial-gradient(circle, #b700ff, #000000);
+  padding: 30px;
+  border-radius: 50px;
+  box-shadow: 0 0 30px #8d00c4;
+  flex: 1 1 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.carro-box img {
+  width: 100%;
+  max-width: 300px;
+  transition: transform 0.3s ease;
+}
+
+.info {
+  flex: 1 1 300px;
+}
+
+.info h2 {
+  font-size: 32px;
+  margin-bottom: 15px;
+  color: #00eaff;
+  text-shadow: 0 0 8px #00eaff99;
+}
+
+.info p {
+  font-size: 16px;
+  line-height: 1.6;
+  color: #ddd;
+  margin-bottom: 20px;
+}
+
+.botoes {
+  display: flex;
+  gap: 15px;
+}
+
+.botoes button {
+  background: transparent;
+  border: 2px solid #00eaff;
+  color: #00eaff;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  font-size: 22px;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.botoes button:hover {
+  background: #00eaff;
+  color: #1a0033;
+  box-shadow: 0 0 10px #00eaffaa;
+}
+
+/* Bolhas brilhantes */
+.bolha {
+  position: absolute;
+  background: radial-gradient(circle, #00ffffaa, transparent);
+  border-radius: 50%;
+  filter: blur(25px);
+  z-index: -1;
+  animation: pulse 4s infinite alternate;
+}
+
+.bolha1 { width: 100px; height: 100px; bottom: 40px; right: 30px; }
+.bolha2 { width: 70px; height: 70px; bottom: 120px; right: 110px; }
+.bolha3 { width: 40px; height: 40px; bottom: 200px; right: 180px; }
+
+@keyframes pulse {
+  from { opacity: 0.5; transform: scale(1); }
+  to { opacity: 1; transform: scale(1.1); }
+}
+
+
+/* Responsividade para celular */
+@media (max-width: 768px) {
+  .card {
+    flex-direction: column;
+    text-align: center;
+    padding: 20px;
+  }
+
+  .carro-box {
+    width: 100%;
+    border-radius: 30px;
+  }
+
+  .carro-box img {
+    max-width: 90%;
+  }
+
+  .info {
+    width: 100%;
+    padding-top: 20px;
+  }
+
+  .info h2 {
+    font-size: 28px;
+  }
+
+  .info p {
+    font-size: 15px;
+  }
+
+  .botoes {
+    justify-content: center;
+    margin-top: 15px;
+  }
+
+  .botoes button {
+    width: 45px;
+    height: 45px;
+    font-size: 20px;
+  }
+
+  .container {
+    padding: 20px;
+  }
+
+  header {
+    font-size: 22px;
+  }
+}
