@@ -1,18 +1,21 @@
 const produtos = [
   {
     titulo: "McLaren Roxa",
-    descricao: "A lendária McLaren roxa com portas que abrem para cima. Luxo e desempenho juntos.",
-    imagem: "img/Mclarem.png"
+    descricao: "A lendária McLaren com portas que abrem para cima. Luxo e velocidade.",
+    imagem: "img/Mclarem.png",
+    corTema: "#b700ff"
   },
   {
-    titulo: "Lamborghini Amarela",
-    descricao: "Um clássico italiano com motor V12 e presença inconfundível.",
-    imagem: "img/Mclarem.png"
+    titulo: "Ferrari Vermelha",
+    descricao: "Ferrari vermelha furiosa. Um símbolo de paixão e potência.",
+    imagem: "img/ferrari.png",
+    corTema: "#ff2d2d"
   },
   {
-    titulo: "Bugatti Azul",
-    descricao: "Velocidade e elegância. O carro mais rápido do mundo, agora na sua tela.",
-    imagem: "img/Mclarem.png"
+    titulo: "Dodge Amarelo",
+    descricao: "Dodge amarelo elétrico! Estilo bruto com muita presença.",
+    imagem: "img/dodge.png",
+    corTema: "#ffcc00"
   }
 ];
 
@@ -20,13 +23,29 @@ let indexAtual = 0;
 
 function atualizarProduto() {
   const card = document.getElementById("card");
-  card.style.opacity = 0;
+  const img = document.getElementById("car-img");
+  const titulo = document.getElementById("car-title");
+  const desc = document.getElementById("car-desc");
+
+  // Animação de saída
+  card.classList.add("fade-out");
 
   setTimeout(() => {
-    document.getElementById("car-title").textContent = produtos[indexAtual].titulo;
-    document.getElementById("car-desc").textContent = produtos[indexAtual].descricao;
-    document.getElementById("car-img").src = produtos[indexAtual].imagem;
-    card.style.opacity = 1;
+    // Atualiza conteúdo
+    titulo.textContent = produtos[indexAtual].titulo;
+    desc.textContent = produtos[indexAtual].descricao;
+    img.src = produtos[indexAtual].imagem;
+
+    // Atualiza cor do tema dinamicamente
+    document.documentElement.style.setProperty('--cor-tema', produtos[indexAtual].corTema);
+
+    // Animação de entrada
+    card.classList.remove("fade-out");
+    card.classList.add("fade-in");
+
+    setTimeout(() => {
+      card.classList.remove("fade-in");
+    }, 300);
   }, 300);
 }
 

@@ -4,21 +4,31 @@
   box-sizing: border-box;
 }
 
+
+:root {
+  --cor-tema: #b700ff; /* cor inicial: McLaren */
+}
+
 body {
   font-family: 'Segoe UI', sans-serif;
-  background: linear-gradient(135deg, #4c0099, #1a0033);
+  background: linear-gradient(135deg, var(--cor-tema), #1a0033);
   color: #fff;
   min-height: 100vh;
   overflow-x: hidden;
 }
 
 header {
-  text-align: center;
-  padding: 30px 20px;
-  font-size: 28px;
+  width: 100%;
+  padding: 20px 30px;
+  margin-bottom: 30px;
+  position: relative;
+}
+
+.logo {
+  font-size: 24px;
   font-weight: bold;
-  color: #00eaff;
-  text-shadow: 0 0 10px #00eaff77;
+  color: var(--cor-tema);
+  text-shadow: 0 0 10px var(--cor-tema);
 }
 
 .container {
@@ -30,7 +40,7 @@ header {
 
 .card {
   display: flex;
-  background: #2a004d;
+  background: var(--cor-tema);
   border-radius: 30px;
   box-shadow: 0 0 40px #00000077;
   padding: 30px;
@@ -42,10 +52,10 @@ header {
 }
 
 .carro-box {
-  background: radial-gradient(circle, #b700ff, #000000);
+  background: radial-gradient(circle, var(--cor-tema), #000000);
   padding: 30px;
   border-radius: 50px;
-  box-shadow: 0 0 30px #8d00c4;
+  box-shadow: 0 0 30px var(--cor-tema);
   flex: 1 1 300px;
   display: flex;
   align-items: center;
@@ -65,8 +75,8 @@ header {
 .info h2 {
   font-size: 32px;
   margin-bottom: 15px;
-  color: #00eaff;
-  text-shadow: 0 0 8px #00eaff99;
+  color: var(--cor-tema);
+  text-shadow: 0 0 8px var(--cor-tema);
 }
 
 .info p {
@@ -83,8 +93,8 @@ header {
 
 .botoes button {
   background: transparent;
-  border: 2px solid #00eaff;
-  color: #00eaff;
+  border: 2px solid rgba(0, 0, 0, 0.582);
+  color: #fff; /* fixa branco pro ícone aparecer em qualquer cor de fundo */
   border-radius: 50%;
   width: 50px;
   height: 50px;
@@ -94,15 +104,15 @@ header {
 }
 
 .botoes button:hover {
-  background: #00eaff;
-  color: #1a0033;
-  box-shadow: 0 0 10px #00eaffaa;
+  background: var(--cor-tema);
+  color: #000; /* texto escuro quando fundo é claro */
+  box-shadow: 0 0 10px var(--cor-tema);
 }
 
 /* Bolhas brilhantes */
 .bolha {
   position: absolute;
-  background: radial-gradient(circle, #00ffffaa, transparent);
+  background: radial-gradient(circle, var(--cor-tema), transparent);
   border-radius: 50%;
   filter: blur(25px);
   z-index: -1;
@@ -118,6 +128,26 @@ header {
   to { opacity: 1; transform: scale(1.1); }
 }
 
+
+.descricao-box {
+  background: rgba(255, 255, 255, 0.05); /* fundo bem transparente */
+  border: 1px solid rgba(255, 255, 255, 0.2); /* leve borda */
+  border-radius: 12px;
+  padding: 15px 20px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(8px); /* efeito vidro/futurista */
+  -webkit-backdrop-filter: blur(8px);
+  margin-bottom: 20px;
+}
+
+.info h2 {
+  font-size: 32px;
+  margin-bottom: 15px;
+  color: rgb(32, 32, 32);
+  text-shadow:
+    0 0 2px #ffffff,     /* sombra fina pra dar contraste */
+    0 0 5px var(--cor-tema);  /* brilho suave da cor do tema */
+}
 
 /* Responsividade para celular */
 @media (max-width: 768px) {
