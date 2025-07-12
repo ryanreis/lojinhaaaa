@@ -149,6 +149,24 @@ header {
     0 0 5px var(--cor-tema);  /* brilho suave da cor do tema */
 }
 
+.carro-box img {
+  width: 100%;
+  max-width: 300px;
+  transition: transform 0.3s ease;
+  animation: carroFadeIn 0.6s ease;
+}
+
+@keyframes carroFadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
 /* Responsividade para celular */
 @media (max-width: 768px) {
   .card {
