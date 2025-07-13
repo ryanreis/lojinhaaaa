@@ -35,6 +35,35 @@ header h1 {
   text-shadow: 0 0 10px var(--cor-tema);
 }
 
+#lang-switcher button {
+  display: flex;               /* Para alinhar imagem + texto lado a lado */
+  align-items: center;         /* Centraliza verticalmente */
+  gap: 6px;                    /* Espaço entre bandeira e texto */
+  padding: 6px 12px;           /* Aumenta área clicável */
+  background-color: transparent;
+  border: 2px solid var(--cor-tema);
+  border-radius: 5px;
+  color: var(--cor-tema);
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  user-select: none;
+}
+
+#lang-switcher button img.flag-icon {
+  width: 24px;
+  height: 18px;
+  border-radius: 3px;
+  box-shadow: 0 0 2px rgba(0,0,0,0.3);
+  pointer-events: none; /* Faz com que o clique passe para o botão, não fique preso na imagem */
+}
+
+#lang-switcher button.active,
+#lang-switcher button:hover {
+  background-color: var(--cor-tema);
+  color: #000;
+}
+
 .container {
   flex: 1;
   display: flex;
@@ -42,6 +71,12 @@ header h1 {
   align-items: center;
   padding: 40px 20px;
   position: relative;
+}
+
+.container.preload {
+  opacity: 0;
+  pointer-events: none;
+  user-select: none;
 }
 
 .card {
@@ -161,13 +196,13 @@ header h1 {
   right: 180px;
 }
 
-footer {
-  text-align: center;
-  padding: 15px 0;
-  color: var(--cor-texto);
-  background-color: #120029; /* opcional, deixa o rodapé com um fundo escuro */
-  font-size: 14px;
-  font-weight: 500;
+.flag-icon {
+  width: 20px;
+  height: 14px;
+  margin-right: 8px;
+  vertical-align: middle;
+  border-radius: 3px;
+  box-shadow: 0 0 2px rgba(0,0,0,0.3);
 }
 
 @keyframes pulse {
@@ -255,4 +290,14 @@ footer {
   opacity: 1;
   transform: translateX(0);
   transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* Estilo footer */
+footer {
+  text-align: center;
+  padding: 15px 0;
+  color: var(--cor-texto);
+  background-color: #120029;
+  font-size: 14px;
+  font-weight: 500;
 }
