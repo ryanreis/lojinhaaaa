@@ -1,39 +1,45 @@
+/* Reset básico */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-
 :root {
-  --cor-tema: #b700ff; /* cor inicial: McLaren */
+  --cor-tema: #b700ff;
+  --cor-fundo: #1a0033;
+  --cor-texto: #eee;
+  --cor-texto-escuro: #202020;
 }
 
 body {
-  font-family: 'Segoe UI', sans-serif;
-  background: linear-gradient(135deg, var(--cor-tema), #1a0033);
-  color: #fff;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, var(--cor-tema), var(--cor-fundo));
+  color: var(--cor-texto);
   min-height: 100vh;
   overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 header {
-  width: 100%;
   padding: 20px 30px;
-  margin-bottom: 30px;
-  position: relative;
+  text-align: center;
 }
 
-.logo {
-  font-size: 24px;
-  font-weight: bold;
+header h1 {
+  font-weight: 700;
+  font-size: 2rem;
   color: var(--cor-tema);
   text-shadow: 0 0 10px var(--cor-tema);
 }
 
 .container {
+  flex: 1;
   display: flex;
   justify-content: center;
+  align-items: center;
   padding: 40px 20px;
   position: relative;
 }
@@ -47,7 +53,7 @@ header {
   gap: 40px;
   flex-wrap: wrap;
   align-items: center;
-  max-width: 1000px;
+  max-width: 900px;
   transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
 }
 
@@ -66,6 +72,9 @@ header {
   width: 100%;
   max-width: 300px;
   transition: transform 0.3s ease;
+  animation: carroFadeIn 0.6s ease;
+  border-radius: 15px;
+  object-fit: contain;
 }
 
 .info {
@@ -75,38 +84,50 @@ header {
 .info h2 {
   font-size: 32px;
   margin-bottom: 15px;
-  color: var(--cor-tema);
-  text-shadow: 0 0 8px var(--cor-tema);
+  color: var(--cor-texto-escuro);
+  text-shadow:
+    0 0 2px #ffffff,
+    0 0 5px var(--cor-tema);
 }
 
-.info p {
-  font-size: 16px;
-  line-height: 1.6;
-  color: #ddd;
+.descricao-box {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 12px;
+  padding: 15px 20px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
   margin-bottom: 20px;
+  color: var(--cor-texto);
+  font-size: 16px;
+  line-height: 1.5;
 }
 
-.botoes {
+.buttons {
   display: flex;
   gap: 15px;
 }
 
-.botoes button {
+.buttons button {
   background: transparent;
   border: 2px solid rgba(0, 0, 0, 0.582);
-  color: #fff; /* fixa branco pro ícone aparecer em qualquer cor de fundo */
+  color: var(--cor-texto);
   border-radius: 50%;
   width: 50px;
   height: 50px;
   font-size: 22px;
   cursor: pointer;
   transition: 0.3s ease;
+  box-shadow: none;
 }
 
-.botoes button:hover {
+.buttons button:hover,
+.buttons button:focus {
   background: var(--cor-tema);
-  color: #000; /* texto escuro quando fundo é claro */
+  color: #000;
   box-shadow: 0 0 10px var(--cor-tema);
+  outline: none;
 }
 
 /* Bolhas brilhantes */
@@ -119,41 +140,46 @@ header {
   animation: pulse 4s infinite alternate;
 }
 
-.bolha1 { width: 100px; height: 100px; bottom: 40px; right: 30px; }
-.bolha2 { width: 70px; height: 70px; bottom: 120px; right: 110px; }
-.bolha3 { width: 40px; height: 40px; bottom: 200px; right: 180px; }
+.bolha1 {
+  width: 100px;
+  height: 100px;
+  bottom: 40px;
+  right: 30px;
+}
+
+.bolha2 {
+  width: 70px;
+  height: 70px;
+  bottom: 120px;
+  right: 110px;
+}
+
+.bolha3 {
+  width: 40px;
+  height: 40px;
+  bottom: 200px;
+  right: 180px;
+}
+
+footer {
+  text-align: center;
+  padding: 15px 0;
+  color: var(--cor-texto);
+  background-color: #120029; /* opcional, deixa o rodapé com um fundo escuro */
+  font-size: 14px;
+  font-weight: 500;
+}
 
 @keyframes pulse {
-  from { opacity: 0.5; transform: scale(1); }
-  to { opacity: 1; transform: scale(1.1); }
-}
+  from {
+    opacity: 0.5;
+    transform: scale(1);
+  }
 
-
-.descricao-box {
-  background: rgba(255, 255, 255, 0.05); /* fundo bem transparente */
-  border: 1px solid rgba(255, 255, 255, 0.2); /* leve borda */
-  border-radius: 12px;
-  padding: 15px 20px;
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
-  backdrop-filter: blur(8px); /* efeito vidro/futurista */
-  -webkit-backdrop-filter: blur(8px);
-  margin-bottom: 20px;
-}
-
-.info h2 {
-  font-size: 32px;
-  margin-bottom: 15px;
-  color: rgb(32, 32, 32);
-  text-shadow:
-    0 0 2px #ffffff,     /* sombra fina pra dar contraste */
-    0 0 5px var(--cor-tema);  /* brilho suave da cor do tema */
-}
-
-.carro-box img {
-  width: 100%;
-  max-width: 300px;
-  transition: transform 0.3s ease;
-  animation: carroFadeIn 0.6s ease;
+  to {
+    opacity: 1;
+    transform: scale(1.1);
+  }
 }
 
 @keyframes carroFadeIn {
@@ -161,6 +187,7 @@ header {
     opacity: 0;
     transform: scale(0.9);
   }
+
   to {
     opacity: 1;
     transform: scale(1);
@@ -193,16 +220,16 @@ header {
     font-size: 28px;
   }
 
-  .info p {
-    font-size: 15px;
+  .descricao-box {
+    font-size: 14px;
   }
 
-  .botoes {
+  .buttons {
     justify-content: center;
     margin-top: 15px;
   }
 
-  .botoes button {
+  .buttons button {
     width: 45px;
     height: 45px;
     font-size: 20px;
@@ -212,7 +239,20 @@ header {
     padding: 20px;
   }
 
-  header {
+  header h1 {
     font-size: 22px;
   }
+}
+
+/* Animação para fade */
+.fade-out {
+  opacity: 0;
+  transform: translateX(20px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.fade-in {
+  opacity: 1;
+  transform: translateX(0);
+  transition: opacity 0.3s ease, transform 0.3s ease;
 }

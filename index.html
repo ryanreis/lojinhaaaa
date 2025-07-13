@@ -2,41 +2,47 @@
 <html lang="pt-BR">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Lojinha McLaren</title>
-    <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lojinha McLaren | Carros de Luxo</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
-    <header>
-        <h1>Lojinha</h1>
-    </header>
+  <header>
+    <h1>Lojinha de Carros</h1>
+  </header>
 
-    <main class="container">
-        <div class="card" id="card">
-            <div class="carro-box">
-                <img id="car-img" src="./img/Mclarem.png" alt="Produto" />
-            </div>
+  <main class="container">
+    <section class="card" id="card" aria-live="polite" aria-atomic="true">
+      <div class="carro-box">
+        <img id="car-img" src="./img/Mclarem.png" alt="McLaren Roxa" />
+      </div>
 
-            <div class="info">
-                <h2 id="car-title">McLaren Roxa</h2>
-                <div class="descricao-box">
-                    <p id="car-desc">A lendária McLaren com portas que abrem para cima. Luxo e velocidade.</p>
-                </div>
-                <div class="botoes">
-                    <button onclick="voltar()">&larr;</button>
-                    <button onclick="avancar()">&rarr;</button>
-                </div>
-            </div>
+      <div class="info">
+        <h2 id="car-title">McLaren Roxa</h2>
+        <div class="descricao-box">
+          <p id="car-desc">
+            A lendária McLaren com portas que abrem para cima. Luxo e velocidade.
+          </p>
         </div>
+        <div class="buttons">
+          <button onclick="voltar()" aria-label="Carro anterior">&larr;</button>
+          <button onclick="avancar()" aria-label="Próximo carro">&rarr;</button>
+        </div>
+      </div>
+    </section>
 
-        <div class="bolha bolha1"></div>
-        <div class="bolha bolha2"></div>
-        <div class="bolha bolha3"></div>
-    </main>
+    <div class="bolha bolha1"></div>
+    <div class="bolha bolha2"></div>
+    <div class="bolha bolha3"></div>
+  </main>
 
-    <script src="scripts.js"></script>
+  <footer>
+    <p>© 2025 Lojinha de Carros. Todos os direitos reservados.</p>
+  </footer>
+
+  <script src="scripts.js"></script>
 </body>
 
 </html>
