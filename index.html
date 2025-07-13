@@ -1,44 +1,42 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Lojinha McLaren | Carros de Luxo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Lojinha McLaren</title>
   <link rel="stylesheet" href="style.css" />
 </head>
-
 <body>
   <header>
-    <h1>Lojinha de Carros</h1>
-    <div id="lang-switcher">
-  <button data-lang="pt" class="active">
-    <img src="./img/icons8-brasil-48.png" alt="Brasil" class="flag-icon" /></button>
-  <button data-lang="nl">
-    <img src="./img/icons8-netherlands-48.png" alt="Holanda" class="flag-icon" />
-  </button>
-</div>
+    <h1>Lojinha</h1>
+    <div id="lang-switcher" role="group" aria-label="Seleção de idioma">
+      <button data-lang="pt" class="active" aria-label="Selecionar Português">
+        <img src="./img/icons8-brasil-48.png" alt="Bandeira do Brasil" class="flag-icon" />
+        PT
+      </button>
+      <button data-lang="nl" aria-label="Selecionar Holandês">
+        <img src="./img/icons8-netherlands-48.png" alt="Bandeira da Holanda" class="flag-icon" />
+        NL
+      </button>
+    </div>
   </header>
 
   <main class="container preload">
-    <section class="card" id="card" aria-live="polite" aria-atomic="true">
+    <div class="card" id="card">
       <div class="carro-box">
-        <img id="car-img" src="./img/Mclarem.png" alt="McLaren Roxa" />
+        <img id="car-img" src="./img/Mclarem.png" alt="Produto" />
       </div>
-
       <div class="info">
         <h2 id="car-title">McLaren Roxa</h2>
         <div class="descricao-box">
-          <p id="car-desc">
-            A lendária McLaren com portas que abrem para cima. Luxo e velocidade.
-          </p>
+          <p id="car-desc">A lendária McLaren com portas que abrem para cima. Luxo e velocidade.</p>
         </div>
-        <div class="buttons">
+        <div class="botoes">
           <button onclick="voltar()" aria-label="Carro anterior">&larr;</button>
           <button onclick="avancar()" aria-label="Próximo carro">&rarr;</button>
         </div>
       </div>
-    </section>
+    </div>
 
     <div class="bolha bolha1"></div>
     <div class="bolha bolha2"></div>
@@ -46,10 +44,11 @@
   </main>
 
   <footer>
-    <p>© 2025 Lojinha de Carros. Todos os direitos reservados.</p>
-  </footer>
+  <div class="assinatura-box">
+    <p class="assinatura">Desenvolvido por Ryan Reis &copy; 2025</p>
+  </div>
+</footer>
 
   <script src="scripts.js"></script>
 </body>
-
 </html>

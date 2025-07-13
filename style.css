@@ -1,4 +1,3 @@
-/* Reset básico */
 * {
   margin: 0;
   padding: 0;
@@ -7,44 +6,89 @@
 
 :root {
   --cor-tema: #b700ff;
-  --cor-fundo: #1a0033;
-  --cor-texto: #eee;
-  --cor-texto-escuro: #202020;
 }
 
 body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background: linear-gradient(135deg, var(--cor-tema), var(--cor-fundo));
-  color: var(--cor-texto);
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(135deg, var(--cor-tema), #1a0033);
+  color: #fff;
   min-height: 100vh;
   overflow-x: hidden;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
 }
 
 header {
+  width: 100%;
   padding: 20px 30px;
+  margin-bottom: 30px;
+  position: relative;
   text-align: center;
 }
 
 header h1 {
-  font-weight: 700;
-  font-size: 2rem;
+  font-size: 36px;
+  font-weight: 900;
+  color: var(--cor-tema);
+  text-align: center;
+  text-shadow:
+    0 0 8px var(--cor-tema),
+    0 0 20px var(--cor-tema),
+    0 0 30px rgba(0, 0, 0, 0);
+  margin-bottom: 8px;
+  user-select: none;
+}
+
+footer {
+  width: 100%;
+  text-align: center;
+  padding: 40px 10px 20px;
+}
+
+.assinatura-box {
+  display: inline-block;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  padding: 12px 20px;
+  border-radius: 10px;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.assinatura {
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--cor-tema);
+  text-shadow: 0 0 3px var(--cor-tema);
+  user-select: none;
+  letter-spacing: 0.4px;
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: bold;
   color: var(--cor-tema);
   text-shadow: 0 0 10px var(--cor-tema);
 }
 
+/* Lang switcher */
+#lang-switcher {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  margin-top: 10px;
+}
+
 #lang-switcher button {
-  display: flex;               /* Para alinhar imagem + texto lado a lado */
-  align-items: center;         /* Centraliza verticalmente */
-  gap: 6px;                    /* Espaço entre bandeira e texto */
-  padding: 6px 12px;           /* Aumenta área clicável */
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px;
   background-color: transparent;
   border: 2px solid var(--cor-tema);
-  border-radius: 5px;
+  border-radius: 6px;
   color: var(--cor-tema);
-  font-weight: 600;
+  font-weight: 700;
+  font-size: 16px;
   cursor: pointer;
   transition: background-color 0.3s ease, color 0.3s ease;
   user-select: none;
@@ -55,28 +99,34 @@ header h1 {
   height: 18px;
   border-radius: 3px;
   box-shadow: 0 0 2px rgba(0,0,0,0.3);
-  pointer-events: none; /* Faz com que o clique passe para o botão, não fique preso na imagem */
+  pointer-events: none;
 }
 
 #lang-switcher button.active,
-#lang-switcher button:hover {
+#lang-switcher button:hover,
+#lang-switcher button:focus {
   background-color: var(--cor-tema);
   color: #000;
+  outline: none;
+  box-shadow: 0 0 8px var(--cor-tema);
 }
 
-.container {
-  flex: 1;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 40px 20px;
-  position: relative;
-}
-
+/* Container preload (antes do JS rodar) */
 .container.preload {
   opacity: 0;
   pointer-events: none;
   user-select: none;
+  transition: opacity 0.5s ease;
+}
+
+/* Container principal */
+.container {
+  display: flex;
+  justify-content: center;
+  padding: 40px 20px;
+  position: relative;
+  opacity: 1;
+  transition: opacity 0.5s ease;
 }
 
 .card {
@@ -88,7 +138,7 @@ header h1 {
   gap: 40px;
   flex-wrap: wrap;
   align-items: center;
-  max-width: 900px;
+  max-width: 1000px;
   transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
 }
 
@@ -108,8 +158,6 @@ header h1 {
   max-width: 300px;
   transition: transform 0.3s ease;
   animation: carroFadeIn 0.6s ease;
-  border-radius: 15px;
-  object-fit: contain;
 }
 
 .info {
@@ -119,7 +167,7 @@ header h1 {
 .info h2 {
   font-size: 32px;
   margin-bottom: 15px;
-  color: var(--cor-texto-escuro);
+  color: rgb(32, 32, 32);
   text-shadow:
     0 0 2px #ffffff,
     0 0 5px var(--cor-tema);
@@ -134,35 +182,36 @@ header h1 {
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
   margin-bottom: 20px;
-  color: var(--cor-texto);
-  font-size: 16px;
-  line-height: 1.5;
 }
 
-.buttons {
+.info p {
+  font-size: 16px;
+  line-height: 1.6;
+  color: #ddd;
+  margin-bottom: 20px;
+}
+
+.botoes {
   display: flex;
   gap: 15px;
 }
 
-.buttons button {
+.botoes button {
   background: transparent;
-  border: 2px solid rgba(0, 0, 0, 0.582);
-  color: var(--cor-texto);
+  border: 2px solid rgba(0, 0, 0, 0.58);
+  color: #fff;
   border-radius: 50%;
   width: 50px;
   height: 50px;
   font-size: 22px;
   cursor: pointer;
   transition: 0.3s ease;
-  box-shadow: none;
 }
 
-.buttons button:hover,
-.buttons button:focus {
+.botoes button:hover {
   background: var(--cor-tema);
   color: #000;
   box-shadow: 0 0 10px var(--cor-tema);
-  outline: none;
 }
 
 /* Bolhas brilhantes */
@@ -175,46 +224,13 @@ header h1 {
   animation: pulse 4s infinite alternate;
 }
 
-.bolha1 {
-  width: 100px;
-  height: 100px;
-  bottom: 40px;
-  right: 30px;
-}
-
-.bolha2 {
-  width: 70px;
-  height: 70px;
-  bottom: 120px;
-  right: 110px;
-}
-
-.bolha3 {
-  width: 40px;
-  height: 40px;
-  bottom: 200px;
-  right: 180px;
-}
-
-.flag-icon {
-  width: 20px;
-  height: 14px;
-  margin-right: 8px;
-  vertical-align: middle;
-  border-radius: 3px;
-  box-shadow: 0 0 2px rgba(0,0,0,0.3);
-}
+.bolha1 { width: 100px; height: 100px; bottom: 40px; right: 30px; }
+.bolha2 { width: 70px; height: 70px; bottom: 120px; right: 110px; }
+.bolha3 { width: 40px; height: 40px; bottom: 200px; right: 180px; }
 
 @keyframes pulse {
-  from {
-    opacity: 0.5;
-    transform: scale(1);
-  }
-
-  to {
-    opacity: 1;
-    transform: scale(1.1);
-  }
+  from { opacity: 0.5; transform: scale(1); }
+  to { opacity: 1; transform: scale(1.1); }
 }
 
 @keyframes carroFadeIn {
@@ -222,7 +238,6 @@ header h1 {
     opacity: 0;
     transform: scale(0.9);
   }
-
   to {
     opacity: 1;
     transform: scale(1);
@@ -255,16 +270,16 @@ header h1 {
     font-size: 28px;
   }
 
-  .descricao-box {
-    font-size: 14px;
+  .info p {
+    font-size: 15px;
   }
 
-  .buttons {
+  .botoes {
     justify-content: center;
     margin-top: 15px;
   }
 
-  .buttons button {
+  .botoes button {
     width: 45px;
     height: 45px;
     font-size: 20px;
@@ -274,30 +289,7 @@ header h1 {
     padding: 20px;
   }
 
-  header h1 {
+  header {
     font-size: 22px;
   }
-}
-
-/* Animação para fade */
-.fade-out {
-  opacity: 0;
-  transform: translateX(20px);
-  transition: opacity 0.3s ease, transform 0.3s ease;
-}
-
-.fade-in {
-  opacity: 1;
-  transform: translateX(0);
-  transition: opacity 0.3s ease, transform 0.3s ease;
-}
-
-/* Estilo footer */
-footer {
-  text-align: center;
-  padding: 15px 0;
-  color: var(--cor-texto);
-  background-color: #120029;
-  font-size: 14px;
-  font-weight: 500;
 }
